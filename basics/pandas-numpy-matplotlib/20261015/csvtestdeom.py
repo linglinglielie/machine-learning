@@ -1,5 +1,5 @@
 import pandas as pd
-df = pd.read_csv(r".\示例数据.csv")
+df = pd.read_csv(r".\sample-data.csv")
 print(df.describe())          # 数值列统计
 print("==========================================================================")
 print(df.describe(include="all"))  # 所有列统计
