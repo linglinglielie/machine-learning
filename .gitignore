@@ -1,0 +1,18 @@
+# ===== IDE 编辑器配置（PyCharm / VSCode 自动生成，无需上传）=====
+.idea/
+.vscode/
+
+# ===== Python 运行缓存 =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== Python 虚拟环境 =====
+venv/
+env/
+.venv/
+
+# ===== 其他临时/系统文件 =====
+*.log
+.DS_Store
+Thumbs.db

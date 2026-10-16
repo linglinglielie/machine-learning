@@ -1,0 +1,55 @@
+import numpy as np
+a=np.array([[1.23,4],
+            [1.32,4]])
+print(a.dtype)
+b=np.zeros((3,4))
+print(b)
+c=np.arange(10,20,2)
+print(c)
+d=np.arange(12).reshape((3,4))
+print(d)
+e=np.linspace(1,10,20)
+print(e)
+A=np.array([10,20,30,40])
+B=np.arange(4)
+print(A,B)
+C=A-B#np.sin(a)调用函数
+print(C)
+print(A<30)
+D=np.array([[1,1],
+            [0,1]])
+E=np.arange(4).reshape(2,2)
+print(D)
+print(E)
+print('============')
+F=D*E
+print(F)
+F_dot=np.dot(D,E)#矩阵的乘法
+F_dot2=D.dot(E)#另一种形式
+print(F_dot)
+print('====================')
+aa=np.random.random((2,4))
+print(aa)
+print(np.sum(aa))
+print(np.min(aa,axis=1))#axis=0在列方向取值，=1在行方向上取值
+print(np.max(aa))
+print('=========================')
+bb=np.arange(2,14).reshape((3,4))
+print(bb)
+print(np.argmin(bb))#0
+print(np.argmax(bb))#11
+print('=======')#以下求平均值
+print(np.mean(bb))
+print(bb.mean())
+print(np.average(bb))
+#print(bb.average)#报错正中形式不能用
+print('======')#以下求中位数
+print(np.median(bb))
+print(np.cumsum(bb))#类似斐波那契数列，例如：第二# 位数字是第一位加第二位数字的和
+print(np.diff(bb))#同上·，每减，例如第二个数为第三个数减第二个数的差
+print(np.nonzero(bb))#前行后列
+print(np.sort(bb))#排序
+print(np.transpose(bb))#矩阵的转置
+print(bb.T)
+print('===========')
+print(np.clip(bb,5,9))#在这个array中让所有小于5的数等于5，所有大于9的数等于九

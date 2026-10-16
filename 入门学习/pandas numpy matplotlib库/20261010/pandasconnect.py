@@ -1,0 +1,47 @@
+import numpy as np
+import pandas as pd
+#concatenating
+df1=pd.DataFrame(np.ones((3,4))*0,columns=['a','b','c','d'])
+df2=pd.DataFrame(np.ones((3,4))*1,columns=['a','b','c','d'])
+df3=pd.DataFrame(np.ones((3,4))*2,columns=['a','b','c','d'])
+print(df1)
+print(df2)
+print(df3)
+res=pd.concat([df1,df2],axis=0,ignore_index=True)
+print(res)
+print('===============================================================')
+#join,['inner','outer']
+df4=pd.DataFrame(np.ones((3,4))*0,columns=['a','b','c','d'],index=[1,2,3])
+df5=pd.DataFrame(np.ones((3,4))*1,columns=['b','c','d','e'],index=[2,3,4])
+print(df4)
+print(df5)
+print('======================')
+a=pd.concat([df4,df5])
+print(a)
+a=pd.concat([df4,df5],join='outer',ignore_index=True)
+print(a)
+print('=================================================================================')
+df5=pd.DataFrame(np.ones((3,4))*0,columns=['a','b','c','d'],index=[1,2,3])
+df6=pd.DataFrame(np.ones((3,4))*1,columns=['b','c','d','e'],index=[2,3,4])
+#b=pd.concat([df5,df6],axis=1,join_axes=[df5.index],ignore_index=True)
+#`join_axes`已经在新版 pandas**废弃**了。
+#`join_axes`旧写法：`axis=1`横向拼接，指定用谁的索引；新版改用 `join` 参数。
+b=pd.concat([df5,df6],axis=1,join='inner')
+#b=pd.concat(df5,df6],axis=1),reindex(index=df1.index)
+print(b)
+print('======================')
+#append
+df11=pd.DataFrame(np.ones((3,4))*0,columns=['a','b','c','d'])
+df22=pd.DataFrame(np.ones((3,4))*0,columns=['a','b','c','d'])
+df33=pd.DataFrame(np.ones((3,4))*1,columns=['b','c','d','e'],index=[2,3,4])
+#res=df11.append(df22,ignore_index=True)
+#res=df11.append([df22,df33])   #pandas 2.0+ **彻底删除了 `.append()` 方法！**
+#s1=pd.Series([1,2,3,4],index=['a旧写法：`df11.append(df22,ignore_index=True)` ❌ 不能用','b','c','d'])
+#res=df11.append(s1,ignore_index=True)
+res = pd.concat([df11, df22], ignore_index=True)
+print(res)
+print('==================================================================================')
+df12 = pd.DataFrame(np.ones((3,4))*0, columns=['a','b','c','d'])
+s11 = pd.Series([1,2,3,4], index=['a','b','c','d'])
+res1 =pd.concat([df12,s11], ignore_index=True)
+print(res)
